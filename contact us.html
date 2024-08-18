@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        input{
+            margin-top: 20px;
+        }
+        .login_form_input{
+           
+            background-color: aliceblue;
+        }
+        .textarea{
+            height: 100px;
+        }
+        input{
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+        <div class="col-12 text-center">
+            <div class="col_color">
+                <h1>Contact Us</h1>
+                <form name="validate" onsubmit="return Contact()">
+                    <input class="add_pass login_form_input" type="text" placeholder="Full Name" name="fullname">
+                    <input class="add_email login_form_input" placeholder="xyz@gmail.com" name="email"><br><br>
+            
+                    <textarea class="login_form_input textarea" name="message" id="message" placeholder="message"></textarea>
+                    <br>
+                
+                    <button class="login_button" type="submit" value="submit">Login</button>
+            </form>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        function Contact(){
+            let fullname=document.validate.fullname.value;
+            let email=document.validate.email.value;
+            let message=document.validate.message.value;
+            let emailPattern=/^[A-Za-z0-9._]+@[a-z]+\.[a-z]{2,4}$/;
+            if(fullname=="" || fullname.length<3){
+                alert("Enter Full Name");
+                return false
+            }else if(email="" || !emailPattern.test(email)){
+                alert("Enter Valid Email");
+                return false
+            }else if(message.length<20){
+                alert("Enter Minimum 20 Letters");
+                return false
+            }
+            else{
+                
+                alert("Your Complaint Registered Successfully");
+            }
+        }
+      
+    </script>
+    
+</body>
+</html>
